@@ -16,20 +16,30 @@ class LayoutMain extends StatelessWidget {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
-                expandedHeight: 200.0,
+                expandedHeight: 250.0,
                 floating: false,
                 pinned: true,
-                flexibleSpace: FlexibleSpaceBar(
-                    centerTitle: true,
-                    title: Text(this.title,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.0,
-                        )),
-                    background: Image.network(
-                      "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+                centerTitle: false,
+                flexibleSpace: LayoutBuilder(builder: (context, constraint) {
+                  print("constraint = " + constraint.toString());
+                  var top = constraint.biggest.height;
+                  return FlexibleSpaceBar(
+                    centerTitle: false,
+                    titlePadding: EdgeInsets.all(16),
+                    title: Text(
+                      this.title,
+                      style: TextStyle(
+                        color:
+                            top == 80.0 ? Colors.white : Colors.blue.shade900,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    background: Image(
+                      image: AssetImage('assets/images/homebackground2.jpg'),
                       fit: BoxFit.cover,
-                    )),
+                    ),
+                  );
+                }),
               ),
             ];
           },
