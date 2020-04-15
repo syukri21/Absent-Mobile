@@ -1,3 +1,6 @@
+import 'package:absent_flutter/layout/main/main.dart';
+import 'package:absent_flutter/screen/home/Home.dart';
+import 'package:absent_flutter/screen/home/const.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -8,9 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("App")),
-      ),
+      initialRoute: "/",
+      routes: {
+        HOME_SCREEN["path"]: (context) =>
+            LayoutMain(child: Home(), title: HOME_SCREEN["title"])
+      },
     );
   }
 }
