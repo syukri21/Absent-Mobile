@@ -1,4 +1,3 @@
-import 'package:absent_flutter/screen/home/Home.dart';
 import 'package:flutter/material.dart';
 
 class LayoutMain extends StatelessWidget {
@@ -21,21 +20,20 @@ class LayoutMain extends StatelessWidget {
                 pinned: true,
                 centerTitle: false,
                 flexibleSpace: LayoutBuilder(builder: (context, constraint) {
-                  print("constraint = " + constraint.toString());
                   var top = constraint.biggest.height;
                   return FlexibleSpaceBar(
                     centerTitle: false,
                     titlePadding: EdgeInsets.all(16),
+                    background: Image(
+                      image: AssetImage('assets/images/homebackground1.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                     title: Text(
                       top == 80.0 ? this.title : '',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16.0,
                       ),
-                    ),
-                    background: Image(
-                      image: AssetImage('assets/images/homebackground2.jpg'),
-                      fit: BoxFit.cover,
                     ),
                   );
                 }),
