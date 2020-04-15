@@ -27,10 +27,9 @@ class LayoutMain extends StatelessWidget {
                     centerTitle: false,
                     titlePadding: EdgeInsets.all(16),
                     title: Text(
-                      this.title,
+                      top == 80.0 ? this.title : '',
                       style: TextStyle(
-                        color:
-                            top == 80.0 ? Colors.white : Colors.blue.shade900,
+                        color: Colors.white,
                         fontSize: 16.0,
                       ),
                     ),
