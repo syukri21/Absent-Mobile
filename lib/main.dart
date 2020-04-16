@@ -14,6 +14,13 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       theme: ThemeData(
         primarySwatch: Colors.teal,
+        cardTheme: CardTheme(
+          shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(8.0),
+            ),
+          ),
+        ),
       ),
       routes: {
         HOME_SCREEN["path"]: (context) =>

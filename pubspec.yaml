@@ -17,6 +17,7 @@ environment:
     sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+    js_shims: ^1.0.0
     flutter:
         sdk: flutter
 
@@ -42,6 +43,14 @@ flutter:
     assets:
         - assets/images/homebackground1.jpg
         - assets/images/homebackground2.jpg
+        - assets/images/1.png
+        - assets/images/2.png
+        - assets/images/3.png
+        - assets/images/4.png
+        - assets/images/download.jpg
+        - assets/images/download1.jpg
+        - assets/images/download2.jpg
+        - assets/images/download3.jpg
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware.
     # For details regarding adding assets from package dependencies, see

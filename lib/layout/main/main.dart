@@ -12,7 +12,7 @@ class LayoutMain extends StatelessWidget {
     return Scaffold(
       body: DefaultTabController(
         child: NestedScrollView(
-          body: this.child,
+          body: SingleChildScrollView(child: this.child),
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
@@ -20,7 +20,7 @@ class LayoutMain extends StatelessWidget {
                 expandedHeight: 250.0,
                 floating: false,
                 pinned: true,
-                centerTitle: false,
+                elevation: null,
                 flexibleSpace: LayoutBuilder(builder: (context, constraint) {
                   var top = constraint.biggest.height;
                   return FlexibleSpaceBar(
@@ -45,8 +45,9 @@ class LayoutMain extends StatelessWidget {
   BoxDecoration decoration() {
     return BoxDecoration(
       image: DecorationImage(
-          image: AssetImage('assets/images/homebackground1.jpg'),
-          fit: BoxFit.cover),
+        image: AssetImage('assets/images/homebackground1.jpg'),
+        fit: BoxFit.cover,
+      ),
     );
   }
 
