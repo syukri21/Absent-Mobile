@@ -35,15 +35,15 @@ class LayoutMain extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
-            title: Text('school'),
+            title: Text('Kuliah'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            title: Text('Settings'),
+            title: Text('Setting'),
           ),
         ],
         currentIndex: 0,
-        elevation: 10,
+        elevation: 0,
         selectedItemColor: Theme.of(context).appBarTheme.color,
         onTap: (index) {},
       ),
