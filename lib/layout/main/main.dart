@@ -1,3 +1,4 @@
+import 'package:absent_flutter/layout/main/widgets/identity/identity.dart';
 import 'package:flutter/material.dart';
 
 class LayoutMain extends StatelessWidget {
@@ -15,6 +16,7 @@ class LayoutMain extends StatelessWidget {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
+                actions: actions(),
                 expandedHeight: 250.0,
                 floating: false,
                 pinned: true,
@@ -22,20 +24,14 @@ class LayoutMain extends StatelessWidget {
                 flexibleSpace: LayoutBuilder(builder: (context, constraint) {
                   var top = constraint.biggest.height;
                   return FlexibleSpaceBar(
-                    centerTitle: false,
-                    titlePadding: EdgeInsets.all(16),
-                    background: Image(
-                      image: AssetImage('assets/images/homebackground1.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                    title: Text(
-                      top == 80.0 ? this.title : '',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
+                      centerTitle: false,
+                      titlePadding: const EdgeInsets.all(16),
+                      background: Container(
+                        decoration: decoration(),
+                        child: Identity(top: top),
                       ),
-                    ),
-                  );
+                      collapseMode: CollapseMode.parallax,
+                      title: Text(top == 80 ? this.title : ""));
                 }),
               ),
             ];
@@ -44,5 +40,26 @@ class LayoutMain extends StatelessWidget {
         length: 2,
       ),
     );
+  }
+
+  BoxDecoration decoration() {
+    return BoxDecoration(
+      image: DecorationImage(
+          image: AssetImage('assets/images/homebackground1.jpg'),
+          fit: BoxFit.cover),
+    );
+  }
+
+  List<Widget> actions() {
+    return <Widget>[
+      IconButton(
+        icon: Icon(Icons.search),
+        onPressed: () {},
+      ),
+      IconButton(
+        icon: Icon(Icons.menu),
+        onPressed: () {},
+      ),
+    ];
   }
 }
