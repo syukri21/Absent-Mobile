@@ -17,7 +17,6 @@ class LayoutMain extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Stack(
-          fit: StackFit.loose,
           children: <Widget>[
             AppbarBody(),
             Padding(
@@ -27,6 +26,26 @@ class LayoutMain extends StatelessWidget {
             // this.child
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            title: Text('school'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            title: Text('Settings'),
+          ),
+        ],
+        currentIndex: 0,
+        elevation: 10,
+        selectedItemColor: Theme.of(context).appBarTheme.color,
+        onTap: (index) {},
       ),
     );
   }
