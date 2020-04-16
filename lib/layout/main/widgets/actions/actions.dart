@@ -6,9 +6,5 @@ List<Widget> actions() {
       icon: Icon(Icons.search),
       onPressed: () {},
     ),
-    IconButton(
-      icon: Icon(Icons.menu),
-      onPressed: () {},
-    ),
   ];
 }
