@@ -1,5 +1,5 @@
 import 'package:absent_flutter/layout/main/widgets/actions/actions.dart';
-import 'package:absent_flutter/layout/main/widgets/identity/identity.dart';
+import 'package:absent_flutter/layout/main/widgets/appbarBody/appbarBody.dart';
 import 'package:flutter/material.dart';
 
 class LayoutMain extends StatelessWidget {
@@ -19,26 +19,7 @@ class LayoutMain extends StatelessWidget {
         child: Stack(
           fit: StackFit.loose,
           children: <Widget>[
-            Container(
-              height: 250,
-              width: BoxConstraints(maxWidth: double.infinity).biggest.width,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                image: DecorationImage(
-                  alignment: const Alignment(-0.2, 0.1),
-                  image: const AssetImage('assets/images/download.png'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              foregroundDecoration: BoxDecoration(
-                image: DecorationImage(
-                  alignment: const Alignment(1.2, 0.1),
-                  image: const AssetImage('assets/images/blob-shape.png'),
-                  fit: BoxFit.scaleDown,
-                ),
-              ),
-              child: Identity(),
-            ),
+            AppbarBody(),
             Padding(
               child: this.child,
               padding: EdgeInsets.only(top: 160),
