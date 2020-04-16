@@ -13,7 +13,7 @@ class Identity extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(bottom: 120, left: 40),
+          padding: const EdgeInsets.only(bottom: 120, left: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

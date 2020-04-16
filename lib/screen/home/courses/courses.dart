@@ -21,9 +21,10 @@ class _CoursesState extends State<Courses> {
             SliverPadding(
               padding: const EdgeInsets.all(20.0),
               sliver: SliverGrid.count(
-                crossAxisSpacing: 10.0,
-                mainAxisSpacing: 10.0,
-                crossAxisCount: 2,
+                crossAxisSpacing: 5.0,
+                mainAxisSpacing: 5.0,
+                childAspectRatio: 3.0,
+                crossAxisCount: 1,
                 children: <Widget>[
                   Course(
                     title: "Kalkulus 1",
@@ -57,6 +58,8 @@ class Course extends StatelessWidget {
   final String title;
   final ImageProvider image;
 
+  final _borderRadius = const BorderRadius.all(Radius.circular(15));
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -64,12 +67,12 @@ class Course extends StatelessWidget {
       borderOnForeground: true,
       elevation: 10,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
+        borderRadius: _borderRadius,
       ),
       child: Container(
         child: Ink(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
+            borderRadius: _borderRadius,
             image: DecorationImage(
               image: this.image,
               fit: BoxFit.cover,
@@ -77,8 +80,8 @@ class Course extends StatelessWidget {
             ),
           ),
           child: InkWell(
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            splashColor: Colors.teal.withAlpha(100),
+            borderRadius: _borderRadius,
+            splashColor: Theme.of(context).appBarTheme.color,
             onTap: () => print('Card tapped.'),
             child: Padding(
               child: Text(
