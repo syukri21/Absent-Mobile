@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: "/",
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        appBarTheme: AppBarTheme(color: Color.fromRGBO(63, 80, 152, 1)),
         cardTheme: CardTheme(
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.all(

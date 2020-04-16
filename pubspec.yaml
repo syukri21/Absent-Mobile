@@ -18,6 +18,7 @@ environment:
 
 dependencies:
     js_shims: ^1.0.0
+    flutter_svg: ^0.17.4
     flutter:
         sdk: flutter
 
@@ -51,6 +52,9 @@ flutter:
         - assets/images/download1.jpg
         - assets/images/download2.jpg
         - assets/images/download3.jpg
+        - assets/images/download.png
+        - assets/images/blob-shape.png
+        # - assets/images/*
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware.
     # For details regarding adding assets from package dependencies, see

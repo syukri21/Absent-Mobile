@@ -1,3 +1,4 @@
+import 'package:absent_flutter/layout/main/widgets/actions/actions.dart';
 import 'package:absent_flutter/layout/main/widgets/identity/identity.dart';
 import 'package:flutter/material.dart';
 
@@ -10,57 +11,42 @@ class LayoutMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DefaultTabController(
-        child: NestedScrollView(
-          body: SingleChildScrollView(child: this.child),
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return <Widget>[
-              SliverAppBar(
-                actions: actions(),
-                expandedHeight: 250.0,
-                floating: false,
-                pinned: true,
-                elevation: null,
-                flexibleSpace: LayoutBuilder(builder: (context, constraint) {
-                  var top = constraint.biggest.height;
-                  return FlexibleSpaceBar(
-                      centerTitle: false,
-                      titlePadding: const EdgeInsets.all(16),
-                      background: Container(
-                        decoration: decoration(),
-                        child: Identity(top: top),
-                      ),
-                      collapseMode: CollapseMode.parallax,
-                      title: Text(top == 80 ? this.title : ""));
-                }),
+      appBar: AppBar(
+        actions: actions(),
+        elevation: 0,
+      ),
+      body: SingleChildScrollView(
+        child: Stack(
+          fit: StackFit.loose,
+          children: <Widget>[
+            Container(
+              height: 250,
+              width: BoxConstraints(maxWidth: double.infinity).biggest.width,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                image: DecorationImage(
+                  alignment: const Alignment(-0.2, 0.1),
+                  image: const AssetImage('assets/images/download.png'),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ];
-          },
+              foregroundDecoration: BoxDecoration(
+                image: DecorationImage(
+                  alignment: const Alignment(1.2, 0.1),
+                  image: const AssetImage('assets/images/blob-shape.png'),
+                  fit: BoxFit.scaleDown,
+                ),
+              ),
+              child: Identity(),
+            ),
+            Padding(
+              child: this.child,
+              padding: EdgeInsets.only(top: 160),
+            ),
+            // this.child
+          ],
         ),
-        length: 2,
       ),
     );
-  }
-
-  BoxDecoration decoration() {
-    return BoxDecoration(
-      image: DecorationImage(
-        image: AssetImage('assets/images/homebackground1.jpg'),
-        fit: BoxFit.cover,
-      ),
-    );
-  }
-
-  List<Widget> actions() {
-    return <Widget>[
-      IconButton(
-        icon: Icon(Icons.search),
-        onPressed: () {},
-      ),
-      IconButton(
-        icon: Icon(Icons.menu),
-        onPressed: () {},
-      ),
-    ];
   }
 }

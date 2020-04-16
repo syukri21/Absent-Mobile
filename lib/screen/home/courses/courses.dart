@@ -22,6 +22,7 @@ class _CoursesState extends State<Courses> {
               padding: const EdgeInsets.all(20.0),
               sliver: SliverGrid.count(
                 crossAxisSpacing: 10.0,
+                mainAxisSpacing: 10.0,
                 crossAxisCount: 2,
                 children: <Widget>[
                   Course(
@@ -61,7 +62,7 @@ class Course extends StatelessWidget {
     return Card(
       color: stringToHexColor(this.title),
       borderOnForeground: true,
-      elevation: 2,
+      elevation: 10,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(40)),
       ),
