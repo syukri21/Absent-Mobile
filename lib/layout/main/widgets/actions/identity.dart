@@ -24,7 +24,7 @@ class Identity extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 5),
                 child: Text(
-                  "Syukri",
+                  "Fuzi",
                   style: TextStyle(
                       fontSize: 32,
                       color: Colors.white,
