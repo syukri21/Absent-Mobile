@@ -1,5 +1,5 @@
 import 'package:absent_flutter/layout/main/widgets/actions/actions.dart';
-import 'package:absent_flutter/layout/main/widgets/appbarBody/appbarBody.dart';
+import 'package:absent_flutter/layout/main/widgets/actions/identity.dart';
 import 'package:absent_flutter/layout/main/widgets/bottomBar/bottomBar.dart';
 import 'package:flutter/material.dart';
 
@@ -12,23 +12,53 @@ class LayoutMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: actions(),
-        elevation: 0,
-      ),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: <Widget>[
-            AppbarBody(),
-            Padding(
-              child: this.child,
-              padding: EdgeInsets.only(top: 160),
+        // appBar: AppBar(
+        //   actions: actions(),
+        //   elevation: 0,
+        // ),
+        body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: <Widget>[
+            SliverAppBar(
+              pinned: true,
+              expandedHeight: 250,
+              elevation: 0,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Container(
+                      color: Theme.of(context).canvasColor,
+                      child: Image(
+                        image: AssetImage("assets/images/download.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Image(
+                      image: AssetImage("assets/images/blob-shape.png"),
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment(1, -0.5),
+                    ),
+                    Image(
+                      image: AssetImage("assets/images/profile.png"),
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment(0.6, 0),
+                    ),
+                    Identity()
+                  ],
+                ),
+              ),
+              actions: actions(),
             ),
-            // this.child
+            SliverList(
+              delegate: SliverChildListDelegate(
+                <Widget>[
+                  this.child,
+                ],
+              ),
+            ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomBar(),
-    );
+        bottomNavigationBar: BottomBar());
   }
 }

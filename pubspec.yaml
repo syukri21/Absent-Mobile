@@ -53,6 +53,7 @@ flutter:
         - assets/images/download2.jpg
         - assets/images/download3.jpg
         - assets/images/download.png
+        - assets/images/profile.png
         - assets/images/blob-shape.png
         # - assets/images/*
     # An image asset can refer to one or more resolution-specific "variants", see

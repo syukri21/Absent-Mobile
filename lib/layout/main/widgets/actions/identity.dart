@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class Identity extends StatelessWidget {
   const Identity({
     Key key,
-    @required this.top,
   }) : super(key: key);
-
-  final double top;
 
   @override
   Widget build(BuildContext context) {

@@ -19,7 +19,7 @@ class _CoursesState extends State<Courses> {
           shrinkWrap: true,
           slivers: <Widget>[
             SliverPadding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               sliver: SliverGrid.count(
                 crossAxisSpacing: 5.0,
                 mainAxisSpacing: 5.0,
