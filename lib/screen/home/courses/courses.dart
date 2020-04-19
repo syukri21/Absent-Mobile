@@ -1,3 +1,4 @@
+import 'package:absent_flutter/entities/CourseEntity.dart';
 import 'package:absent_flutter/utils/intoRGB.dart';
 import 'package:flutter/material.dart';
 
@@ -27,20 +28,20 @@ class _CoursesState extends State<Courses> {
                 crossAxisCount: 1,
                 children: <Widget>[
                   Course(
-                    title: "Kalkulus 1",
                     image: AssetImage("assets/images/download.jpg"),
+                    data: CourseEntity.mock(),
                   ),
                   Course(
-                    title: "Etika Profesi",
                     image: AssetImage("assets/images/download1.jpg"),
+                    data: CourseEntity.mock(),
                   ),
                   Course(
-                    title: "Bahasa Indonesia",
                     image: AssetImage("assets/images/download2.jpg"),
+                    data: CourseEntity.mock(),
                   ),
                   Course(
-                    title: "Bahasa Inggris",
                     image: AssetImage("assets/images/download3.jpg"),
+                    data: CourseEntity.mock(),
                   ),
                 ],
               ),
@@ -53,9 +54,9 @@ class _CoursesState extends State<Courses> {
 }
 
 class Course extends StatelessWidget {
-  const Course({Key key, this.title, this.image}) : super(key: key);
+  const Course({Key key, this.image, this.data}) : super(key: key);
 
-  final String title;
+  final CourseEntity data;
   final ImageProvider image;
 
   final _borderRadius = const BorderRadius.all(Radius.circular(15));
@@ -63,7 +64,7 @@ class Course extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: stringToHexColor(this.title),
+      color: stringToHexColor(this.data.name),
       borderOnForeground: true,
       elevation: 10,
       shape: RoundedRectangleBorder(
@@ -85,7 +86,7 @@ class Course extends StatelessWidget {
             onTap: () => print('Card tapped.'),
             child: Padding(
               child: Text(
-                this.title,
+                this.data.name,
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
