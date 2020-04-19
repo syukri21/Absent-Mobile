@@ -1,6 +1,5 @@
 // A function that converts a response body into a List<Course>.
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:absent_flutter/entities/Course.dart';
 import 'package:flutter/foundation.dart';
@@ -23,13 +22,4 @@ Future<List<Course>> fetchCourses() async {
     // then throw an exception.
     throw Exception('Failed to load Course');
   }
-}
-
-Future<List<Course>> fetchMockCourses() async {
-  sleep(Duration(milliseconds: 500));
-  var mockData = json.encode(<Course>[
-    Course.mock(),
-    Course.mock(),
-  ]);
-  return compute(parseCourses, mockData);
 }
