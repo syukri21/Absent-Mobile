@@ -1,4 +1,4 @@
-import 'package:absent_flutter/layout/main/main.dart';
+import 'package:absent_flutter/layout/main/container.dart';
 import 'package:absent_flutter/screen/home/Home.dart';
 import 'package:absent_flutter/screen/home/const.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         HOME_SCREEN["path"]: (context) =>
-            LayoutMain(child: Home(), title: HOME_SCREEN["title"])
+            LayoutMainContainer(child: Home(), title: HOME_SCREEN["title"]),
       },
     );
   }

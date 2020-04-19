@@ -1,6 +1,6 @@
 import 'package:absent_flutter/api/fetchs/fetchCourses.dart';
 import 'package:absent_flutter/entities/Course.dart';
-import 'package:absent_flutter/screen/Home/courseLists/courseList.dart';
+import 'package:absent_flutter/screen/Home/courseList/courseList.dart';
 import 'package:flutter/material.dart';
 
 class CourseContainer extends StatefulWidget {

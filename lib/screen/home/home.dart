@@ -1,4 +1,4 @@
-import 'package:absent_flutter/screen/Home/courseLists/container.dart';
+import 'package:absent_flutter/screen/Home/courseList/container.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {

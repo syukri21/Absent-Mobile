@@ -1,34 +1,21 @@
+import 'package:absent_flutter/layout/main/service.dart';
 import 'package:absent_flutter/layout/main/widgets/actions/actions.dart';
 import 'package:absent_flutter/layout/main/widgets/actions/identity.dart';
 import 'package:absent_flutter/layout/main/widgets/bottomBar/bottomBar.dart';
 import 'package:flutter/material.dart';
 
-class LayoutMain extends StatefulWidget {
-  final Widget child;
-  final String title;
-  const LayoutMain({Key key, @required this.child, @required this.title})
-      : super(key: key);
+class LayoutMain extends StatelessWidget {
+  const LayoutMain({
+    Key key,
+    @required ScrollController scrollController,
+    @required this.shouldChangeBackgroundColor,
+    @required this.widget,
+  })  : _scrollController = scrollController,
+        super(key: key);
 
-  @override
-  _LayoutMainState createState() => _LayoutMainState();
-}
-
-class _LayoutMainState extends State<LayoutMain> {
-  ScrollController _scrollController;
-  bool shouldChangeBackgroundColor = false;
-
-  @override
-  void initState() {
-    _scrollController = ScrollController();
-    _scrollController.addListener(() {
-      if (_scrollController.offset >= 50) {
-        setState(() => shouldChangeBackgroundColor = true);
-      } else {
-        setState(() => shouldChangeBackgroundColor = false);
-      }
-    });
-    super.initState();
-  }
+  final ScrollController _scrollController;
+  final bool shouldChangeBackgroundColor;
+  final LayoutMainService widget;
 
   @override
   Widget build(BuildContext context) {
