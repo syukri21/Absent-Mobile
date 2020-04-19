@@ -1,4 +1,4 @@
-import 'package:absent_flutter/entities/CourseEntity.dart';
+import 'package:absent_flutter/entities/Course.dart' as CourseFactory;
 import 'package:absent_flutter/utils/intoRGB.dart';
 import 'package:flutter/material.dart';
 
@@ -29,19 +29,19 @@ class _CoursesState extends State<Courses> {
                 children: <Widget>[
                   Course(
                     image: AssetImage("assets/images/download.jpg"),
-                    data: CourseEntity.mock(),
+                    data: CourseFactory.Course.mock(),
                   ),
                   Course(
                     image: AssetImage("assets/images/download1.jpg"),
-                    data: CourseEntity.mock(),
+                    data: CourseFactory.Course.mock(),
                   ),
                   Course(
                     image: AssetImage("assets/images/download2.jpg"),
-                    data: CourseEntity.mock(),
+                    data: CourseFactory.Course.mock(),
                   ),
                   Course(
                     image: AssetImage("assets/images/download3.jpg"),
-                    data: CourseEntity.mock(),
+                    data: CourseFactory.Course.mock(),
                   ),
                 ],
               ),
@@ -56,7 +56,7 @@ class _CoursesState extends State<Courses> {
 class Course extends StatelessWidget {
   const Course({Key key, this.image, this.data}) : super(key: key);
 
-  final CourseEntity data;
+  final CourseFactory.Course data;
   final ImageProvider image;
 
   final _borderRadius = const BorderRadius.all(Radius.circular(15));

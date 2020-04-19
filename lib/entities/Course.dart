@@ -1,20 +1,20 @@
-class CourseEntity {
+class Course {
   int iD;
   String name;
   int totalSks;
   int semester;
 
-  CourseEntity({this.iD, this.name, this.totalSks, this.semester});
+  Course({this.iD, this.name, this.totalSks, this.semester});
 
-  CourseEntity.fromJson(Map<String, dynamic> json) {
+  Course.fromJson(Map<String, dynamic> json) {
     iD = json['ID'];
     name = json['name'];
     totalSks = json['totalSks'];
     semester = json['semester'];
   }
 
-  static CourseEntity mock() {
-    return CourseEntity.fromJson(
+  static Course mock() {
+    return Course.fromJson(
       {"ID": 1, "name": "Kalkulus 1", "totalSks": 3, "semester": 1},
     );
   }
