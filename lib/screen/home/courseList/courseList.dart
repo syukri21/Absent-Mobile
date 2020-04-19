@@ -1,4 +1,3 @@
-import 'package:absent_flutter/api/fetchs/fetchCourses.dart';
 import 'package:absent_flutter/entities/Course.dart';
 import 'package:absent_flutter/screen/home/CourseCard/CourseCard.dart';
 import 'package:flutter/material.dart';
