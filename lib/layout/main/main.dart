@@ -19,7 +19,6 @@ class _LayoutMainState extends State<LayoutMain> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _scrollController = ScrollController();
     _scrollController.addListener(() {
       if (_scrollController.offset >= 50) {
