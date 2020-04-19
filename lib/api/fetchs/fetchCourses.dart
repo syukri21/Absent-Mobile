@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:absent_flutter/api/Api.dart';
 import 'package:absent_flutter/entities/Course.dart';
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
 
 List<Course> parseCourses(String responseBody) {
   final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
@@ -12,7 +13,7 @@ List<Course> parseCourses(String responseBody) {
 }
 
 Future<List<Course>> fetchCourses() async {
-  final response = await Api.instance.get('/courses');
+  final response = await http.get("http://10.0.2.2:3000/courses");
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
