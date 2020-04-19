@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class CourseLists extends StatefulWidget {
   CourseLists({Key key}) : super(key: key);
-
   @override
   _CourseListsState createState() => _CourseListsState();
 }

@@ -1,30 +1,52 @@
+import 'dart:convert';
+
 class Course {
-  int iD;
+  int id;
   String name;
   int totalSks;
   int semester;
 
-  Course({this.iD, this.name, this.totalSks, this.semester});
+  Course({
+    this.id,
+    this.name,
+    this.totalSks,
+    this.semester,
+  });
 
-  Course.fromJson(Map<String, dynamic> json) {
-    iD = json['ID'];
-    name = json['name'];
-    totalSks = json['totalSks'];
-    semester = json['semester'];
-  }
+  Course copyWith({
+    int id,
+    String name,
+    int totalSks,
+    int semester,
+  }) =>
+      Course(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        totalSks: totalSks ?? this.totalSks,
+        semester: semester ?? this.semester,
+      );
+
+  factory Course.fromRawJson(String str) => Course.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory Course.fromJson(Map<String, dynamic> json) => Course(
+        id: json["ID"],
+        name: json["name"],
+        totalSks: json["totalSks"],
+        semester: json["semester"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "ID": id,
+        "name": name,
+        "totalSks": totalSks,
+        "semester": semester,
+      };
 
   static Course mock() {
     return Course.fromJson(
       {"ID": 1, "name": "Kalkulus 1", "totalSks": 3, "semester": 1},
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['ID'] = this.iD;
-    data['name'] = this.name;
-    data['totalSks'] = this.totalSks;
-    data['semester'] = this.semester;
-    return data;
   }
 }
