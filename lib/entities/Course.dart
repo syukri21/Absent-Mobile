@@ -46,7 +46,12 @@ class Course {
 
   static Course mock() {
     return Course.fromJson(
-      {"ID": 1, "name": "Kalkulus 1", "totalSks": 3, "semester": 1},
+      {
+        "ID": 1,
+        "name": "Mock Kalkulus 1",
+        "totalSks": 3,
+        "semester": 1,
+      },
     );
   }
 }

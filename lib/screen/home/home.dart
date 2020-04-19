@@ -1,4 +1,5 @@
-import 'package:absent_flutter/screen/home/CourseLists/CourseLists.dart';
+import 'package:absent_flutter/screen/Home/courseLists/container.dart';
+import 'package:absent_flutter/screen/Home/courseLists/courseList.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -9,7 +10,7 @@ class Home extends StatelessWidget {
     return Container(
       child: Column(
         children: <Widget>[
-          CourseLists(),
+          CourseContainer(),
         ],
       ),
     );
