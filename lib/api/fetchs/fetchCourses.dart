@@ -12,8 +12,7 @@ List<Course> parseCourses(String responseBody) {
 }
 
 Future<List<Course>> fetchCourses() async {
-  final response =
-      await Api.instance.get('https://jsonplaceholder.typicode.com/Courses');
+  final response = await Api.instance.get('/courses');
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
