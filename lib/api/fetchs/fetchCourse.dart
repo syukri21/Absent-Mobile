@@ -2,8 +2,8 @@ import 'package:absent_flutter/api/Api.dart';
 import 'package:absent_flutter/entities/Course.dart';
 
 Future<Course> fetchCourse() async {
-  final response =
-      await Api.instance.get('https://jsonplaceholder.typicode.com/Courses/1');
+  // TODO  Not implemented
+  final response = await Api.instance.get("NOT implemented");
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
