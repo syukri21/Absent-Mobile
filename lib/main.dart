@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.white),
         ),
         selectedRowColor: Color.fromRGBO(103, 151, 209, 1),
+        buttonTheme: ButtonThemeData(),
         cardTheme: CardTheme(
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.all(
