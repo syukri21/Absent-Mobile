@@ -9,7 +9,7 @@ class LayoutMinimal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Icon(Icons.multiline_chart),
+        title: Icon(Icons.insert_chart),
       ),
       bottomNavigationBar: BottomBar(
         pathIndex: this.pathIndex,
