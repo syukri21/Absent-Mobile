@@ -1,4 +1,4 @@
-import 'package:absent_flutter/layout/minimal/minimal.dart';
+import 'package:absent_flutter/layout/Reku/Reku.dart';
 import 'package:flutter/material.dart';
 
 class TradeArguments {
@@ -13,9 +13,7 @@ class TradeContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TradeArguments args = ModalRoute.of(context).settings.arguments;
-    return LayoutMinimal(
-      pathIndex: 1,
-    );
+    // final TradeArguments args = ModalRoute.of(context).settings.arguments;
+    return LayoutReku(pathIndex: 1);
   }
 }
