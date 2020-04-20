@@ -1,6 +1,6 @@
-import 'package:absent_flutter/layout/main/container.dart';
-import 'package:absent_flutter/screen/home/Home.dart';
-import 'package:absent_flutter/screen/home/const.dart';
+import 'package:absent_flutter/layout/minimal/minimal.dart';
+import 'package:absent_flutter/screen/Home/container.dart';
+import 'package:absent_flutter/screen/Trade/container.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        HOME_SCREEN["path"]: (context) =>
-            LayoutMainContainer(child: Home(), title: HOME_SCREEN["title"]),
+        HomeContainer.routeName: (context) => HomeContainer(),
+        TradeContainer.routeName: (context) => TradeContainer(),
       },
     );
   }

@@ -1,9 +1,42 @@
 import 'package:flutter/material.dart';
 
-class BottomBar extends StatelessWidget {
+class BottomBar extends StatefulWidget {
+  final int pathIndex;
   const BottomBar({
     Key key,
+    this.pathIndex,
   }) : super(key: key);
+
+  @override
+  _BottomBarState createState() => _BottomBarState();
+}
+
+class _BottomBarState extends State<BottomBar> {
+  int selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    if (this.widget.pathIndex != null) {
+      setState(() {
+        selectedIndex = this.widget.pathIndex;
+      });
+    }
+  }
+
+  handleTap(int index) {
+    if (index != this.selectedIndex) {
+      switch (index) {
+        case 0:
+          Navigator.popAndPushNamed(context, "/");
+          break;
+        case 1:
+          Navigator.popAndPushNamed(context, "/trade");
+          break;
+        default:
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +55,10 @@ class BottomBar extends StatelessWidget {
           title: Text('Setting'),
         ),
       ],
-      currentIndex: 0,
+      currentIndex: selectedIndex,
       elevation: 0,
       selectedItemColor: Theme.of(context).appBarTheme.color,
-      onTap: (index) {},
+      onTap: handleTap,
     );
   }
 }
