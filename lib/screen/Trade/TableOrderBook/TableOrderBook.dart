@@ -14,6 +14,42 @@ class TableOrderBook extends StatelessWidget {
   Widget build(BuildContext context) {
     return Wrap(
       children: <Widget>[
+        Table(
+          columnWidths: {
+            0: FixedColumnWidth(80),
+            1: IntrinsicColumnWidth(flex: 1),
+            2: IntrinsicColumnWidth(flex: 1),
+          },
+          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+          children: <TableRow>[
+            TableRow(children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  "Harga",
+                  style: const TextStyle(fontSize: 12),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  "BTC",
+                  style: const TextStyle(fontSize: 12),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  "IDR",
+                  style: const TextStyle(fontSize: 12),
+                  textAlign: TextAlign.end,
+                ),
+              ),
+            ]),
+          ],
+        ),
         TableOrderBookSell(sell: orderBook.sortedS(10)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 6.0),

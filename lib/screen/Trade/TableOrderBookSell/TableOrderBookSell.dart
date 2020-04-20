@@ -13,7 +13,7 @@ class TableOrderBookSell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Table(
       columnWidths: {
-        0: IntrinsicColumnWidth(flex: 1),
+        0: FixedColumnWidth(80),
         1: IntrinsicColumnWidth(flex: 1),
         2: IntrinsicColumnWidth(flex: 1),
       },
