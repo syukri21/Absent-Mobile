@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 class LayoutReku extends StatelessWidget {
   final int pathIndex;
-  const LayoutReku({Key key, this.pathIndex}) : super(key: key);
+  final Widget child;
+  const LayoutReku({Key key, this.pathIndex, this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +37,9 @@ class LayoutReku extends StatelessWidget {
           child: AppBarBottom(),
         ),
         actions: actions(),
+      ),
+      body: SingleChildScrollView(
+        child: this.child,
       ),
       bottomNavigationBar: BottomBar(
         pathIndex: this.pathIndex,
