@@ -1,4 +1,6 @@
 import 'package:absent_flutter/RekuEntities/OrderBook.dart';
+import 'package:absent_flutter/screen/Trade/TableOrderBookBuy/TableOrderBookBuy.dart';
+import 'package:absent_flutter/screen/Trade/TableOrderBookSell/TableOrderBookSell.dart';
 import 'package:flutter/material.dart';
 
 class TableOrderBook extends StatelessWidget {
@@ -12,7 +14,7 @@ class TableOrderBook extends StatelessWidget {
   Widget build(BuildContext context) {
     return Wrap(
       children: <Widget>[
-        buildTableOrderBookSell(),
+        TableOrderBookSell(sell: orderBook.sortedS(10)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 6.0),
           child: Container(
@@ -24,55 +26,8 @@ class TableOrderBook extends StatelessWidget {
             ),
           ),
         ),
-        buildTableOrderBookBuy()
+        TableOrderBookBuy(buy: orderBook.sortedB(10)),
       ],
-    );
-  }
-
-  Table buildTableOrderBookSell() {
-    return Table(
-      columnWidths: {
-        0: IntrinsicColumnWidth(flex: 1),
-        1: IntrinsicColumnWidth(flex: 1),
-        2: IntrinsicColumnWidth(flex: 1),
-      },
-      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-      children: orderBook.sortedS(10).map<TableRow>((S data) {
-        return TableRow(children: <Widget>[
-          buildText(data.priceInIDR),
-          buildText(data.volumeInCoin),
-          buildText(data.volumeInIDR),
-        ]);
-      }).toList(),
-    );
-  }
-
-  Table buildTableOrderBookBuy() {
-    return Table(
-      columnWidths: {
-        0: IntrinsicColumnWidth(flex: 1),
-        1: IntrinsicColumnWidth(flex: 1),
-        2: IntrinsicColumnWidth(flex: 1),
-      },
-      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-      children: orderBook.sortedB(10).map<TableRow>((B data) {
-        return TableRow(children: <Widget>[
-          buildText(data.priceInIDR),
-          buildText(data.volumeInCoin),
-          buildText(data.volumeInIDR),
-        ]);
-      }).toList(),
-    );
-  }
-
-  Padding buildText(String text) {
-    return Padding(
-      padding: const EdgeInsets.all(6.0),
-      child: Text(
-        text,
-        style: const TextStyle(fontSize: 12),
-        textAlign: TextAlign.end,
-      ),
     );
   }
 }
