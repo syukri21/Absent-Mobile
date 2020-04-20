@@ -47,8 +47,8 @@ class _BottomBarState extends State<BottomBar> {
           title: Text('Home'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.school),
-          title: Text('Kuliah'),
+          icon: Icon(Icons.insert_chart),
+          title: Text('Trade'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.settings),

@@ -1,3 +1,4 @@
+import 'package:absent_flutter/layout/main/widgets/actions/actions.dart';
 import 'package:absent_flutter/layout/main/widgets/bottomBar/bottomBar.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,18 @@ class LayoutMinimal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Icon(Icons.insert_chart),
+        automaticallyImplyLeading: false,
+        title: Container(
+          child: Flex(
+            children: <Widget>[
+              Icon(Icons.insert_chart),
+              Expanded(child: Center(child: Text("Trade"))),
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            direction: Axis.horizontal,
+          ),
+        ),
+        actions: actions(),
       ),
       bottomNavigationBar: BottomBar(
         pathIndex: this.pathIndex,

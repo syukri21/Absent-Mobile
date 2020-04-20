@@ -41,6 +41,7 @@ class _LayoutMainState extends State<LayoutMain> {
         physics: const BouncingScrollPhysics(),
         slivers: <Widget>[
           SliverAppBar(
+            automaticallyImplyLeading: false,
             pinned: true,
             expandedHeight: 250,
             elevation: 0,
