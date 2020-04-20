@@ -45,27 +45,79 @@ class OrderBook {
             s.map((x) => List<dynamic>.from(x.map((x) => x)))),
       };
 
-  String priceInIDR(OrderBookType type, int index) {
-    if (type == OrderBookType.b) {
-      return Rupiah(this.b[index][1]).toRupiah();
-    } else {
-      return Rupiah(this.s[index][1]).toRupiah();
-    }
+// NOTE CUSTOM
+
+  List<B> sortedB(int sort) {
+    return this
+        .b
+        .sublist(0, sort != null ? 10 : sort)
+        .map<B>((a) => B(
+              price: a[1],
+              volCoin: a[2],
+              volIDR: a[0],
+            ))
+        .toList();
   }
 
-  String volumeInCoin(OrderBookType type, int index) {
-    if (type == OrderBookType.b) {
-      return Rupiah(this.b[index][2]).toRupiahWithDecimal();
-    } else {
-      return Rupiah(this.s[index][2]).toRupiahWithDecimal();
-    }
+  List<S> sortedS(int sort) {
+    return this
+        .s
+        .sublist(0, sort != null ? 10 : sort)
+        .reversed
+        .toList()
+        .map<S>((a) => S(
+              price: a[1],
+              volCoin: a[2],
+              volIDR: a[0],
+            ))
+        .toList();
+  }
+}
+
+class B {
+  double volIDR;
+  double price;
+  double volCoin;
+
+  B({
+    this.volIDR,
+    this.price,
+    this.volCoin,
+  });
+
+  String get priceInIDR {
+    return Rupiah(this.price).toRupiah();
   }
 
-  String volumeInIDR(OrderBookType type, int index) {
-    if (type == OrderBookType.b) {
-      return Rupiah(this.b[index][0]).toRupiah();
-    } else {
-      return Rupiah(this.s[index][0]).toRupiah();
-    }
+  String get volumeInCoin {
+    return Rupiah(this.volCoin).toRupiahWithDecimal();
+  }
+
+  String get volumeInIDR {
+    return Rupiah(this.volIDR).toRupiah();
+  }
+}
+
+class S {
+  double volIDR;
+  double price;
+  double volCoin;
+
+  S({
+    this.volIDR,
+    this.price,
+    this.volCoin,
+  });
+
+  String get priceInIDR {
+    return Rupiah(this.price).toRupiah();
+  }
+
+  String get volumeInCoin {
+    return Rupiah(this.volCoin).toRupiahWithDecimal();
+  }
+
+  String get volumeInIDR {
+    return Rupiah(this.volIDR).toRupiah();
   }
 }

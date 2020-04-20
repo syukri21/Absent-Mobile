@@ -1,3 +1,4 @@
+import 'package:absent_flutter/RekuApi/fetchs/fetchOrderBook.dart';
 import 'package:absent_flutter/RekuApi/fetchs/fetchOrderBookMock.dart';
 import 'package:absent_flutter/RekuEntities/OrderBook.dart';
 import 'package:absent_flutter/screen/Trade/TableOrderBook/TableOrderBook.dart';
@@ -19,7 +20,7 @@ class _TableOrderBookContainerState extends State<TableOrderBookContainer> {
   @override
   void initState() {
     super.initState();
-    this.futureOrderBook = fetchOrderBookMock();
+    this.futureOrderBook = fetchOrderBook();
   }
 
   @override
@@ -34,7 +35,10 @@ class _TableOrderBookContainerState extends State<TableOrderBookContainer> {
         } else if (snapshot.hasError) {
           return Text('${snapshot.error.toString()}');
         }
-        return CircularProgressIndicator();
+        return Container(
+          height: 400,
+          child: Center(child: CircularProgressIndicator()),
+        );
       },
     );
   }

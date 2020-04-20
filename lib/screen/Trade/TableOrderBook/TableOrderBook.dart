@@ -10,6 +10,26 @@ class TableOrderBook extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Wrap(
+      children: <Widget>[
+        buildTableOrderBookSell(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6.0),
+          child: Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey[200],
+              ),
+            ),
+          ),
+        ),
+        buildTableOrderBookBuy()
+      ],
+    );
+  }
+
+  Table buildTableOrderBookSell() {
     return Table(
       columnWidths: {
         0: IntrinsicColumnWidth(flex: 1),
@@ -17,25 +37,32 @@ class TableOrderBook extends StatelessWidget {
         2: IntrinsicColumnWidth(flex: 1),
       },
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-      children: buildOrderBookList(),
+      children: orderBook.sortedS(10).map<TableRow>((S data) {
+        return TableRow(children: <Widget>[
+          buildText(data.priceInIDR),
+          buildText(data.volumeInCoin),
+          buildText(data.volumeInIDR),
+        ]);
+      }).toList(),
     );
   }
 
-  List<TableRow> buildOrderBookList() {
-    return orderBook.b
-        .asMap()
-        .map<int, TableRow>((int index, List<double> data) {
-          return MapEntry(
-            index,
-            TableRow(children: <Widget>[
-              buildText(orderBook.priceInIDR(OrderBookType.b, index)),
-              buildText(orderBook.volumeInCoin(OrderBookType.b, index)),
-              buildText(orderBook.volumeInIDR(OrderBookType.b, index)),
-            ]),
-          );
-        })
-        .values
-        .toList();
+  Table buildTableOrderBookBuy() {
+    return Table(
+      columnWidths: {
+        0: IntrinsicColumnWidth(flex: 1),
+        1: IntrinsicColumnWidth(flex: 1),
+        2: IntrinsicColumnWidth(flex: 1),
+      },
+      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+      children: orderBook.sortedB(10).map<TableRow>((B data) {
+        return TableRow(children: <Widget>[
+          buildText(data.priceInIDR),
+          buildText(data.volumeInCoin),
+          buildText(data.volumeInIDR),
+        ]);
+      }).toList(),
+    );
   }
 
   Padding buildText(String text) {
