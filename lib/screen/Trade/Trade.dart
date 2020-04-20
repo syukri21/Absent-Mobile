@@ -1,3 +1,4 @@
+import 'package:absent_flutter/screen/Trade/TableOrderBook/container.dart';
 import 'package:flutter/material.dart';
 
 class Trade extends StatelessWidget {
@@ -5,10 +6,23 @@ class Trade extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[Text("Trade")],
-      ),
+    return Flex(
+      direction: Axis.horizontal,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
+      children: <Widget>[
+        Expanded(
+          flex: 1,
+          child: Container(
+            color: Colors.red,
+            height: 200,
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: TableOrderBookContainer(),
+        ),
+      ],
     );
   }
 }
