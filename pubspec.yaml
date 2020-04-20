@@ -19,6 +19,7 @@ environment:
 dependencies:
     js_shims: ^1.0.0
     flutter_svg: ^0.17.4
+    flutter_money_formatter: ^0.8.3
     http: ^0.12.0+4
     flutter:
         sdk: flutter
