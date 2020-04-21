@@ -23,6 +23,49 @@ class Trade extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SellBuyMenu(),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0, bottom: 8),
+                    child: Flex(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      direction: Axis.horizontal,
+                      children: <Widget>[
+                        Text("Saldo", style: TextStyle(fontSize: 12)),
+                        Text("0", style: TextStyle(fontSize: 12)),
+                      ],
+                    ),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Total Beli (IDR)',
+                      labelStyle: TextStyle(fontSize: 14),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(0))),
+                      contentPadding: EdgeInsets.all(10),
+                      isDense: true,
+                    ),
+                  ),
+                  Flex(
+                    direction: Axis.horizontal,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("25%"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("50%"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("75%"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("100%"),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
