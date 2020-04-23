@@ -44,6 +44,7 @@ class LayoutReku extends StatelessWidget {
       bottomNavigationBar: BottomBar(
         pathIndex: this.pathIndex,
       ),
+      //
     );
   }
 }
