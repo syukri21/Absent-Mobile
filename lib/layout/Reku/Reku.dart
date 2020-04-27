@@ -18,6 +18,7 @@ class LayoutReku extends StatelessWidget {
             children: <Widget>[
               Icon(Icons.insert_chart),
               Expanded(
+                // dssd
                 child: Center(
                   child: Wrap(
                     children: <Widget>[
