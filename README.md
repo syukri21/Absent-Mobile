@@ -1,16 +1,32 @@
-# absent_flutter
+---
+description: Flutter
+---
 
-A new Flutter project.
+# Admin Abesnt
 
-## Getting Started
+## Run App Development
 
-This project is a starting point for a Flutter application.
+Run the application in development mode using this command:
 
-A few resources to get you started if this is your first Flutter project:
+```
+$ flutter run
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Build
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Build application using this command
+
+```bash
+$ flutter build
+```
+
+## Preview
+
+Home
+
+![](.gitbook/assets/absent_flutter_screenshot_2020.05.08_14.38.10.jpg)
+
+
+
+
+
