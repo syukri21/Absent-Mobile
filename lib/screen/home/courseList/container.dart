@@ -1,4 +1,4 @@
-import 'package:absent_flutter/api/fetchs/fetchCourses.dart';
+import 'package:absent_flutter/Api/fetchs/fetchCoursesMock.dart';
 import 'package:absent_flutter/entities/Course.dart';
 import 'package:absent_flutter/screen/Home/courseList/courseList.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class _CourseContainerState extends State<CourseContainer> {
 
   @override
   void initState() {
-    futureCourses = fetchCourses();
+    futureCourses = fetchCoursesMock();
     super.initState();
   }
 
